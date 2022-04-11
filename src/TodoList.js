@@ -1,40 +1,47 @@
 import React, {useState} from 'react';
+import {v4 as uuidv4} from "uuid"
 import TodoForm from "./TodoForm";
+
 
 const TodoList = () => {
 
-   const initialList = [
+    const initialList = [
         {
-            id: 1,
+            id: uuidv4(),
             title: "Learn React",
-            status: "TODO"
+            status: "Todo"
         },
         {
-            id: 2,
-            title: "Learn JS",
-            status: "IN PROGRESS"
+            id: uuidv4(),
+            title: "Learn CSS",
+            status: "In Progress"
         },
         {
-            id: 3,
+            id: uuidv4(),
+            title: "Learn Js",
+            status: "Review"
+        },
+        {
+            id: uuidv4(),
             title: "Learn Redux",
-            status: "REVIEW"
-        },
-        {
-            id: 4,
-            title: "Learn Python",
-            status: "DONE"
+            status: "Done"
         },
     ]
 
-    const statuses = ["TODO",  "IN PROGRESS","REVIEW", "DONE"]
+    const statuses = ["Todo", "In Progress", "Review", "Done"]
 
-    const [list, setList] = useState(initialList)
-    const [title, setTitle] = useState(" ")
-
+    const [list, setList] = useState(initialList);
+    const [title, setTitle] = useState("");
 
     return (
         <div>
-            <TodoForm list={list} setList={setList} title={title} setTitle={setTitle} statuses={statuses} />
+            <TodoForm
+                list={list}
+                title={title}
+                statuses={statuses}
+                setList={setList}
+                setTitle={setTitle}
+            />
         </div>
     );
 };
